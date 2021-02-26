@@ -1,44 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
-//Program for binary search
+struct node
+{
+    int data;
+    struct node *next;
+};
+void print(struct node *n)
+{
+    while(n!=NULL)
+        {
+        printf("%d\t",n->data);
+        n=n->next;
+        }
+}
+
 int main()
 {
-    int first,last,mid,n,i,find,a[100];
+    struct node* head=NULL;
+    struct node* first=NULL;
+    struct node* second=NULL;
 
-    printf("\nEnter the size of the array");
-    scanf("%d",&n);
+    head=(struct node*)malloc(sizeof(struct node));
+    first=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
 
-    printf("\nEnter the elements in ascending order");
-    for(i=0;i<n;i++)
-    {
-        scanf("%d",&a[i]);
-    }
+    head->data=1;
+    head->next=first;
 
-    printf("\nEnter the value to be searched");
-    scanf("%d",&find);
+    first->data=2;
+    first->next=second;
 
-    first=0;
-    last=n-1;
-    mid=(last+first)/2;
+    second->data=3;
+    second->next=NULL;
 
-    while(first<last)
-    {
-        if(a[mid]<find)
-            first=mid+1;
-        else if(a[mid]==find)
-        {
-            printf("Element found at index %d\n",mid+1);
-            break;
-        }
-        else
-            last=mid-1;
+    print(head);
 
-        mid=(first+last)/2;
-
-    }
-
-    if(first>last)
-        printf("Element not found");
 
     return 0;
+
 }
