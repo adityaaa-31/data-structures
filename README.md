@@ -1,2 +1,2 @@
 # data-structures
-C data structure programs 
+C data structures 
