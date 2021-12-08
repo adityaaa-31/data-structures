@@ -4,38 +4,77 @@ struct node
 {
     int data;
     struct node *next;
-};
-void print(struct node *n)
+} *head = NULL;
+
+void create()
 {
-    while(n!=NULL)
+    int n;
+
+    struct node *tmp;
+
+    tmp = (struct node *)malloc(sizeof(struct node));
+
+    printf("Enter the data");
+    scanf("%d",&n);
+
+    if(head == NULL)
+    {
+        head = tmp;
+        tmp -> data = n;
+        tmp -> next = NULL;
+    }
+    tmp -> data = n;
+    tmp -> next = head;
+    tmp = head;
+
+}
+void display()
+{
+    struct node *tmp;
+
+    tmp = head;
+
+    while(tmp != NULL)
         {
-        printf("%d\t",n->data);
-        n=n->next;
+        printf("%d\t",tmp->data);
+        tmp=tmp->next;
         }
 }
 
 int main()
 {
-    struct node* head=NULL;
-    struct node* first=NULL;
-    struct node* second=NULL;
 
-    head=(struct node*)malloc(sizeof(struct node));
-    first=(struct node*)malloc(sizeof(struct node));
-    second=(struct node*)malloc(sizeof(struct node));
-
-    head->data=1;
-    head->next=first;
-
-    first->data=2;
-    first->next=second;
-
-    second->data=3;
-    second->next=NULL;
-
-    print(head);
+    int ch;
 
 
+    head = (struct node *)malloc(sizeof(struct node));
+
+
+    printf("Enter choice :");
+
+
+    while(1)
+    {
+
+        scanf("%d",&ch);
+        switch(ch)
+        {
+        case 1:
+            create();
+            break;
+
+        case 2:
+            display();
+            break;
+
+        //case 3:
+          //  insert();
+           // break;
+
+        case 3:
+            exit(0);
+    }
+    }
     return 0;
 
 }
