@@ -1,0 +1,16 @@
+class lin{
+  
+  search(arr,key){
+    
+    for(var i = 0; i < arr.length; i++){
+      if(key==arr[i]){
+        console.log("Key found at "+i);
+      }
+    }
+  }
+}
+
+var res = new lin();
+
+var arr = [1,23,45,78,9,5,77,5];
+res.search(arr,5);
